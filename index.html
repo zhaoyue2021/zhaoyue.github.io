@@ -1,1 +1,73 @@
-<h1>你好</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>zhaoyue's玩具屋</title>
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <script src="./layui/layui.js"></script>
+  <style>
+    .layui-layout-admin .layui-side {
+      width: 200px;
+    }
+    .layui-layout-admin .layui-body {
+      left: 200px;
+    }
+  </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">zhaoyue's玩具屋</div>
+  </div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item">
+          <a href="javascript:;">工具</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;" data-url="./page/tool/time.html">时间管理大师</a></dd>
+            <dd><a href="javascript:;" data-url="tool2.html">工具 2</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">应用</a>
+          <dl class="layui-nav-child">
+            <dd class="layui-nav-item">
+              <a href="javascript:;">应用 1</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;" data-url="app1-1.html">应用 1-1</a></dd>
+                <dd><a href="javascript:;" data-url="app1-2.html">应用 1-2</a></dd>
+              </dl>
+            </dd>
+            <dd class="layui-nav-item">
+              <a href="javascript:;">应用 2</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;" data-url="app2-1.html">应用 2-1</a></dd>
+                <dd><a href="javascript:;" data-url="app2-2.html">应用 2-2</a></dd>
+              </dl>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="layui-body">
+    <div id="content" style="padding: 15px;">请选择左侧菜单项</div>
+  </div>
+</div>
+
+<script>
+  layui.use(['element'], function(){
+    var element = layui.element;
+    var $ = layui.jquery;
+
+    $('.layui-nav a').on('click', function() {
+      var url = $(this).data('url');
+      if (url) {
+        $('#content').load(url);
+      }
+    });
+  });
+</script>
+</body>
+</html>
